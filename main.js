@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var hintSpot = document.querySelector("#hintspot")
   var tryAgainSpot = document.querySelector("#tryagainspot")
   var congratsSpot = document.querySelector("#congratsspot")
+  var loseSpot = document.querySelector("#losespot")
   var trySpot = document.querySelector("#trycounter")
 
   var words = ["cactus", "zamboni", "armadillo"]
@@ -42,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   letterSeven.style.display = "none"
   letterEight.style.display = "none"
   trySpot.innerHTML = "5"
+  congratsSpot.style.display = "none"
+  loseSpot.style.display = "none"
+
 
   function randomizer() {
   return Math.floor((Math.random() * words.length) + 1)
@@ -59,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function resetGame() {
     tryAgainSpot.innerHTML = ""
     hintSpot.innerHTML = ""
-    congratsSpot.innerHTML = ""
+    congratsSpot.style.display = "none"
+    loseSpot.style.display = "none"
     letterZero.innerHTML = "_"
     letterOne.innerHTML = "_"
     letterTwo.innerHTML = "_"
@@ -147,12 +152,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         userguessesright.push(firstWordRay[5])
       }
       if (userguessesright.length === firstWordRay.length){
-        congratsSpot.innerHTML = "Congratulations you won!"
+        congratsSpot.style.display = "block"
         userguessesright = []
         userguesseswrong = [0, 0, 0, 0, 0]
       }
       if (userguesseswrong.length === 0){
-        congratsSpot.innerHTML = "Sorry you lost!"
+        loseSpot.style.display = "block"
       }
    console.log(userguessesright)
    console.log(userguesseswrong)
@@ -201,12 +206,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         userguessesright.push(secondWordRay[6])
       }
       if (userguessesright.length === secondWordRay.length){
-        congratsSpot.innerHTML = "Congratulations you won!"
+        congratsSpot.style.display = "block"
         userguessesright = []
         userguesseswrong = [0, 0, 0, 0, 0]
       }
       if (userguesseswrong.length === 0){
-        congratsSpot.innerHTML = "Sorry you lost!"
+        loseSpot.style.display = "block"
       }
 console.log(userguesseswrong)
   })
@@ -264,12 +269,12 @@ console.log(userguesseswrong)
         userguessesright.push(thirdWordRay[8])
       }
       if (userguessesright.length === thirdWordRay.length){
-        congratsSpot.innerHTML = "Congratulations you won!"
+        congratsSpot.style.display = "block"
         userguessesright = []
         userguesseswrong = [0, 0, 0, 0, 0]
       }
       if (userguesseswrong.length === 0){
-        congratsSpot.innerHTML = "Sorry you lost!"
+        loseSpot.style.display = "block"
       }
       console.log(userguesseswrong)
 

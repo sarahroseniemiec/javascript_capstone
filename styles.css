@@ -59,7 +59,19 @@ button:hover {
 
 #congratsspot {
   font-size: 100px;
-  text-align: center; }
+  text-align: center;
+  background-color: rgba(73, 255, 227, 0.5);
+  position: fixed;
+  top: 0px;
+  z-index: 10; }
+
+#losespot {
+  font-size: 100px;
+  text-align: center;
+  background-color: rgba(73, 255, 227, 0.5);
+  position: fixed;
+  top: 0px;
+  z-index: 10; }
 
 #hintspot {
   font-size: 30px; }
