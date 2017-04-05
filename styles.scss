@@ -26,7 +26,7 @@ h1 {
 
 .firstwordletters {
   background: linear-gradient(0deg, #ff446a, #ffffff);
-  width: 850px;
+  width: 1050px;
   height: 200px;
   font-size: 50px;
   text-align: center;
@@ -73,6 +73,14 @@ h1 {
   @extend %letterboxes;
 }
 
+#letterseven {
+  @extend %letterboxes;
+}
+
+#lettereight {
+  @extend %letterboxes;
+}
+
 #guessbox {
   font-size: 20px;
   padding: 5px;
@@ -100,4 +108,9 @@ button:focus {
 
 button:hover {
   background-color: #ff93b9;
+}
+
+#congratsspot {
+  font-size: 100px;
+  text-align: center;
 }

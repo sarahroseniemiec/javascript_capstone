@@ -3,7 +3,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var guessBox = document.querySelector("#guessbox")
   var guessButton = document.querySelector("#guessbutton")
   var guessButtonTwo = document.querySelector("#guessbuttontwo")
-  var tryAgainSpot = document.querySelector("#tryagainspot")
+  var guessButtonThree =
+  document.querySelector("#guessbuttonthree")
+  var hintButton = document.querySelector("#hintbutton")
+  var hintButtonTwo = document.querySelector("#hintbuttontwo")
+  var hintButtonThree = document.querySelector("#hintbuttonthree")
+  var newGameButton = document.querySelector("#newgamebutton")
   var firstWordLetters = document.querySelector("#firstwordletters")
   var letterZero = document.querySelector("#letterzero")
   var letterOne = document.querySelector("#letterone")
@@ -12,52 +17,135 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var letterFour = document.querySelector("#letterfour")
   var letterFive = document.querySelector("#letterfive")
   var letterSix = document.querySelector("#lettersix")
+  var letterSeven = document.querySelector("#letterseven")
+  var letterEight = document.querySelector("#lettereight")
   var hintSpot = document.querySelector("#hintspot")
-  var hintButton = document.querySelector("#hintbutton")
-  var hintButtonTwo = document.querySelector("#hintbuttontwo")
+  var tryAgainSpot = document.querySelector("#tryagainspot")
   var congratsSpot = document.querySelector("#congratsspot")
-  var newGameButton = document.querySelector("#newgamebutton")
 
-  var firstWord = "cactus"
+  var words = ["cactus", "zamboni", "armadillo"]
+
+  var firstWord = words[0]
   var firstWordRay = firstWord.split("")
-  var secondWord = "zamboni"
+  var secondWord = words[1]
   var secondWordRay = secondWord.split("")
-  var thirdWord = "juxtaposition"
+  var thirdWord = words[2]
   var thirdWordRay = thirdWord.split("")
+  var userguessesright = []
+  var userguesseswrong = []
 
   guessButtonTwo.style.display = "none"
+  guessButtonThree.style.display = "none"
   hintButtonTwo.style.display = "none"
+  hintButtonThree.style.display = "none"
   letterSix.style.display = "none"
+  letterSeven.style.display = "none"
+  letterEight.style.display = "none"
+
+  function randomizer() {
+  return Math.floor((Math.random() * words.length) + 1)
+  }
+
+
+  function wrongGuess() {
+    tryAgainSpot.innerHTML = "that letter isn't in the word...try again!"
+  }
+
+  function correctGuess() {
+    tryAgainSpot.innerHTML = "good guess!"
+  }
+
+  function resetGame() {
+    tryAgainSpot.innerHTML = ""
+    hintSpot.innerHTML = ""
+    congratsSpot.innerHTML = ""
+    letterZero.innerHTML = "_"
+    letterOne.innerHTML = "_"
+    letterTwo.innerHTML = "_"
+    letterThree.innerHTML = "_"
+    letterFour.innerHTML = "_"
+    letterFive.innerHTML = "_"
+    guessBox.value = ""
+    userguessesright = []
+  }
+
+  newGameButton.addEventListener("click", function () {
+    resetGame()
+    var choice = randomizer()
+    if (choice == 1){
+      guessButton.style.display = "inline"
+      guessButtonTwo.style.display = "none"
+      guessButtonThree.style.display = "none"
+      hintButton.style.display = "inline"
+      hintButtonTwo.style.display = "none"
+      hintButtonThree.style.display = "none"
+      letterSix.style.display = "none"
+      letterSeven.style.display = "none"
+      letterEight.style.display = "none"
+    } else if (choice == 2){
+      guessButton.style.display = "none"
+      guessButtonTwo.style.display = "inline"
+      guessButtonThree.style.display = "none"
+      hintButton.style.display = "none"
+      hintButtonTwo.style.display = "inline"
+      hintButtonThree.style.display = "none"
+      letterSix.style.display = "inline-block"
+      letterSix.innerHTML = "_"
+      letterSeven.style.display = "none"
+      letterEight.style.display = "none"
+    } else if (choice == 3){
+      guessButton.style.display = "none"
+      guessButtonTwo.style.display = "none"
+      guessButtonThree.style.display = "inline"
+      hintButton.style.display = "none"
+      hintButtonTwo.style.display = "none"
+      hintButtonThree.style.display = "inline"
+      letterSix.style.display = "inline-block"
+      letterSix.innerHTML = "_"
+      letterSeven.style.display = "inline-block"
+      letterSeven.innerHTML = "_"
+      letterEight.style.display = "inline-block"
+      letterEight.innerHTML = "_"
+    }
+
+  })
 
   guessButton.addEventListener("click", function () {
-    var userguess = []
     var guess = guessBox.value.toLowerCase()
-    for(var i = 0; i <= firstWordRay.length; i++){
-      var guessSpot = firstWordRay.indexOf(guess)
-      if (guessSpot === -1) {
-        tryAgainSpot.innerHTML = "that letter isn't in the word...try again!"
+    var guessSpot = firstWordRay.indexOf(guess)
+    if (guessSpot === -1) {
+        wrongGuess()
       } else if (guessSpot === 0){
         letterZero.innerHTML = firstWordRay[0].toUpperCase()
         letterTwo.innerHTML = firstWordRay[2].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[0],firstWordRay[2])
       } else if (guessSpot === 1){
         letterOne.innerHTML = firstWordRay[1].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[1])
       } else if (guessSpot === 2){
         letterTwo.innerHTML = firstWordRay[2].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[2])
       } else if (guessSpot === 3){
         letterThree.innerHTML = firstWordRay[3].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[3])
       } else if (guessSpot === 4){
         letterFour.innerHTML = firstWordRay[4].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[4])
       } else if (guessSpot === 5){
         letterFive.innerHTML = firstWordRay[5].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(firstWordRay[5])
       }
-
-    } console.log(userguess)
+      if (userguessesright.length === firstWordRay.length){
+        congratsSpot.innerHTML = "Congratulations you won!"
+        userguessesright = []
+      }
+   console.log(userguessesright)
 
   })
 
@@ -65,59 +153,109 @@ document.addEventListener("DOMContentLoaded", function (event) {
     hintSpot.innerHTML = "I live in the desert."
   })
 
-  newGameButton.addEventListener("click", function () {
-    tryAgainSpot.innerHTML = ""
-    hintSpot.innerHTML = ""
-    letterZero.innerHTML = "_"
-    letterOne.innerHTML = "_"
-    letterTwo.innerHTML = "_"
-    letterThree.innerHTML = "_"
-    letterFour.innerHTML = "_"
-    letterFive.innerHTML = "_"
-    letterSix.style.display = "inline-block"
-    letterSix.innerHTML = "_"
-    guessBox.value = ""
-    guessButton.style.display = "none"
-    hintButton.style.display = "none"
-    guessButtonTwo.style.display = "inline"
-    hintButtonTwo.style.display = "inline"
-
-  })
 
   guessButtonTwo.addEventListener("click", function () {
     var guess = guessBox.value.toLowerCase()
-    for(var i = 0; i <= secondWordRay.length; i++){
-      var guessSpot = secondWordRay.indexOf(guess)
-      if (guessSpot === -1) {
-        tryAgainSpot.innerHTML = "that letter isn't in the word...try again!"
+    var guessSpot = secondWordRay.indexOf(guess)
+    if (guessSpot === -1) {
+        wrongGuess()
       } else if (guessSpot === 0){
         letterZero.innerHTML = secondWordRay[0].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[0])
+      } else if (guessSpot === 1){
+        letterOne.innerHTML = firstWordRay[1].toUpperCase()
+        correctGuess()
+        userguessesright.push(secondWordRay[1])
       } else if (guessSpot === 2){
         letterTwo.innerHTML = secondWordRay[2].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[2])
       } else if (guessSpot === 3){
         letterThree.innerHTML = secondWordRay[3].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[3])
       } else if (guessSpot === 4){
         letterFour.innerHTML = secondWordRay[4].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[4])
       } else if (guessSpot === 5){
         letterFive.innerHTML = secondWordRay[5].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[5])
       } else if (guessSpot === 6){
         letterSix.innerHTML = secondWordRay[6].toUpperCase()
-        tryAgainSpot.innerHTML = "good guess!"
+        correctGuess()
+        userguessesright.push(secondWordRay[6])
       }
-
-    }
-
+      if (userguessesright.length === secondWordRay.length){
+        congratsSpot.innerHTML = "Congratulations you won!"
+        userguessesright = []
+      }
+console.log(userguessesright)
   })
 
   hintButtonTwo.addEventListener("click", function () {
     hintSpot.innerHTML = "I spend most of my time on the rink."
   })
 
+  guessButtonThree.addEventListener("click", function () {
+    var guess = guessBox.value.toLowerCase()
+    var guessSpot = thirdWordRay.indexOf(guess)
+      if (guessSpot === -1) {
+        wrongGuess()
+      } else if (guessSpot === 0){
+        letterZero.innerHTML = thirdWordRay[0].toUpperCase()
+        letterThree.innerHTML = thirdWordRay[3].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[0])
+        userguessesright.push(thirdWordRay[3])
+      } else if (guessSpot === 1){
+        letterOne.innerHTML = thirdWordRay[1].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[1])
+      } else if (guessSpot === 2){
+        letterTwo.innerHTML = thirdWordRay[2].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[2])
+      } else if (guessSpot === 3){
+        letterThree.innerHTML = thirdWordRay[3].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[3])
+      } else if (guessSpot === 4){
+        letterFour.innerHTML = thirdWordRay[4].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[4])
+      } else if (guessSpot === 5){
+        letterFive.innerHTML = thirdWordRay[5].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[5])
+      } else if (guessSpot === 6){
+        letterSix.innerHTML = thirdWordRay[6].toUpperCase()
+        letterSeven.innerHTML = thirdWordRay[7].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[6])
+        userguessesright.push(thirdWordRay[7])
+      } else if (guessSpot === 7){
+        letterSeven.innerHTML = thirdWordRay[7].toUpperCase()
+        userguessesright.push(thirdWordRay[7])
+        correctGuess()
+      } else if (guessSpot === 8){
+        letterEight.innerHTML = thirdWordRay[8].toUpperCase()
+        correctGuess()
+        userguessesright.push(thirdWordRay[8])
+      }
+      if (userguessesright.length === thirdWordRay.length){
+        congratsSpot.innerHTML = "Congratulations you won!"
+        userguessesright = []
+      }
+      console.log(userguessesright)
+
+  })
+
+  hintButtonThree.addEventListener("click", function () {
+    hintSpot.innerHTML = "My name means 'little armoured one'."
+  })
 
 
 

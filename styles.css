@@ -1,4 +1,4 @@
-#letterzero, #letterone, #lettertwo, #letterthree, #letterfour, #letterfive, #lettersix {
+#letterzero, #letterone, #lettertwo, #letterthree, #letterfour, #letterfive, #lettersix, #letterseven, #lettereight {
   display: inline-block;
   background-color: white;
   margin: 40px 10px 10px 10px;
@@ -18,7 +18,7 @@ h1 {
 
 .firstwordletters {
   background: linear-gradient(0deg, #ff446a, #ffffff);
-  width: 850px;
+  width: 1050px;
   height: 200px;
   font-size: 50px;
   text-align: center;
@@ -56,5 +56,9 @@ button:focus {
 
 button:hover {
   background-color: #ff93b9; }
+
+#congratsspot {
+  font-size: 100px;
+  text-align: center; }
 
 /*# sourceMappingURL=styles.css.map */
