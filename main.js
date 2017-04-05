@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var guessBox = document.querySelector("#guessbox")
   var guessButton = document.querySelector("#guessbutton")
   var guessButtonTwo = document.querySelector("#guessbuttontwo")
-  var guessButtonThree =
-  document.querySelector("#guessbuttonthree")
+  var guessButtonThree = document.querySelector("#guessbuttonthree")
   var hintButton = document.querySelector("#hintbutton")
   var hintButtonTwo = document.querySelector("#hintbuttontwo")
   var hintButtonThree = document.querySelector("#hintbuttonthree")
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var hintSpot = document.querySelector("#hintspot")
   var tryAgainSpot = document.querySelector("#tryagainspot")
   var congratsSpot = document.querySelector("#congratsspot")
+  var trySpot = document.querySelector("#trycounter")
 
   var words = ["cactus", "zamboni", "armadillo"]
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var thirdWord = words[2]
   var thirdWordRay = thirdWord.split("")
   var userguessesright = []
-  var userguesseswrong = []
+  var userguesseswrong = [0, 0, 0, 0, 0]
 
   guessButtonTwo.style.display = "none"
   guessButtonThree.style.display = "none"
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   letterSix.style.display = "none"
   letterSeven.style.display = "none"
   letterEight.style.display = "none"
+  trySpot.innerHTML = "5"
 
   function randomizer() {
   return Math.floor((Math.random() * words.length) + 1)
@@ -66,7 +67,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     letterFour.innerHTML = "_"
     letterFive.innerHTML = "_"
     guessBox.value = ""
+    trySpot.innerHTML = "5"
     userguessesright = []
+    userguesseswrong = [0, 0, 0, 0, 0]
   }
 
   newGameButton.addEventListener("click", function () {
@@ -115,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var guessSpot = firstWordRay.indexOf(guess)
     if (guessSpot === -1) {
         wrongGuess()
+        userguesseswrong.pop(0)
+        trySpot.innerHTML = userguesseswrong.length
       } else if (guessSpot === 0){
         letterZero.innerHTML = firstWordRay[0].toUpperCase()
         letterTwo.innerHTML = firstWordRay[2].toUpperCase()
@@ -144,8 +149,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (userguessesright.length === firstWordRay.length){
         congratsSpot.innerHTML = "Congratulations you won!"
         userguessesright = []
+        userguesseswrong = [0, 0, 0, 0, 0]
+      }
+      if (userguesseswrong.length === 0){
+        congratsSpot.innerHTML = "Sorry you lost!"
       }
    console.log(userguessesright)
+   console.log(userguesseswrong)
 
   })
 
@@ -158,7 +168,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var guess = guessBox.value.toLowerCase()
     var guessSpot = secondWordRay.indexOf(guess)
     if (guessSpot === -1) {
-        wrongGuess()
+      wrongGuess()
+      userguesseswrong.pop(0)
+      trySpot.innerHTML = userguesseswrong.length
       } else if (guessSpot === 0){
         letterZero.innerHTML = secondWordRay[0].toUpperCase()
         correctGuess()
@@ -191,8 +203,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (userguessesright.length === secondWordRay.length){
         congratsSpot.innerHTML = "Congratulations you won!"
         userguessesright = []
+        userguesseswrong = [0, 0, 0, 0, 0]
       }
-console.log(userguessesright)
+      if (userguesseswrong.length === 0){
+        congratsSpot.innerHTML = "Sorry you lost!"
+      }
+console.log(userguesseswrong)
   })
 
   hintButtonTwo.addEventListener("click", function () {
@@ -204,6 +220,8 @@ console.log(userguessesright)
     var guessSpot = thirdWordRay.indexOf(guess)
       if (guessSpot === -1) {
         wrongGuess()
+        userguesseswrong.pop(0)
+        trySpot.innerHTML = userguesseswrong.length
       } else if (guessSpot === 0){
         letterZero.innerHTML = thirdWordRay[0].toUpperCase()
         letterThree.innerHTML = thirdWordRay[3].toUpperCase()
@@ -248,8 +266,12 @@ console.log(userguessesright)
       if (userguessesright.length === thirdWordRay.length){
         congratsSpot.innerHTML = "Congratulations you won!"
         userguessesright = []
+        userguesseswrong = [0, 0, 0, 0, 0]
       }
-      console.log(userguessesright)
+      if (userguesseswrong.length === 0){
+        congratsSpot.innerHTML = "Sorry you lost!"
+      }
+      console.log(userguesseswrong)
 
   })
 
