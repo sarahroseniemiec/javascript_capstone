@@ -1,4 +1,8 @@
 $hotpink: #ff446a;
+$confettipink: rgba(255, 66, 129, 0.8);
+$confettiblue: rgba(0, 188, 198, 0.8);
+$confettiwhite: rgba(108, 198, 0, 0.8);
+$confettideeppink: rgba(165, 13, 86, 0.8);
 
 %letterboxes {
   display: inline-block;
@@ -11,6 +15,41 @@ $hotpink: #ff446a;
 
 }
 
+%mainbutts {
+  font-size: 20px;
+  background-color: $hotpink;
+  border: none;
+  text-decoration: none;
+  padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 20px;
+}
+
+%confettistyle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  margin-top: -100px;
+  animation: confetti 7s;
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes confetti {
+  0% {top:0px;}
+100% {top:1500px;}
+}
+
+@-webkit-keyframes {
+0% {top:0px;}
+100% {top:1500px;}
+}
+
+@mixin confettimix ($color){
+  background-color: $color;
+}
 
 body {
   font-family: 'Didact Gothic', sans-serif;
@@ -92,40 +131,93 @@ h1 {
   outline: none;
 }
 
-button {
-  font-size: 20px;
-  background-color: $hotpink;
-  border: none;
-  text-decoration: none;
-  padding: 10px;
-  font-family: 'Didact Gothic', sans-serif;
-  margin: 20px;
+#hintbutton, #hintbuttontwo, #hintbuttonthree, #newgamebutton, #guessbutton, #guessbuttontwo, #guessbuttonthree {
+  @extend %mainbutts
+
 }
 
 button:focus {
   outline:none;
 }
 
-button:hover {
+#hintbutton:hover{
+  background-color: #ff93b9;
+}
+
+#hintbuttontwo:hover{
+  background-color: #ff93b9;
+}
+
+#hintbuttonthree:hover{
+  background-color: #ff93b9;
+}
+
+#newgamebutton:hover{
+  background-color: #ff93b9;
+}
+
+#guessbutton:hover{
+  background-color: #ff93b9;
+}
+
+#guessbuttontwo:hover{
+  background-color: #ff93b9;
+}
+#guessbuttonthree:hover {
   background-color: #ff93b9;
 }
 
 #congratsspot {
-  font-size: 100px;
-  text-align: center;
-  background-color: rgba(73, 255, 227, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
   top: 0px;
+  left: 0px;
   z-index: 10;
+  width: 100%;
+  height: 100%;
+
+}
+
+#congratsmessage {
+  font-size: 100px;
+  text-align: center;
+  position: absolute;
+  z-index: -100;
+  top: 10px;
+  width: 100%;
 }
 
 #losespot {
-  font-size: 100px;
-  text-align: center;
-  background-color: rgba(73, 255, 227, 0.5);
+  background-color: rgba(50, 202, 195, 0.42);
   position: fixed;
   top: 0px;
+  left: 0px;
   z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+#losemessage {
+  text-align: center;
+  font-size: 100px;
+}
+
+#losebutt,#winbutt {
+  top: 0px;
+  left: 0px;
+  border: none;
+  text-decoration: none;
+  background-color: rgba(50, 202, 195, 0.42);
+  font-size: 20px;
+}
+
+#losebutt:hover {
+  background-color: rgb(50, 202, 195)
+}
+
+
+#winbutt:hover {
+  background-color: rgb(50, 202, 195)
 }
 
 #hintspot {
@@ -134,4 +226,54 @@ button:hover {
 
 .tries {
   font-size: 30px;
+}
+
+.confettia, .confettic, .confettiu {
+  @extend %confettistyle;
+  @include confettimix($confettipink);
+  margin-left: 200px;
+  animation-delay: 1s;
+
+}
+
+.confettib, .confettif, .confettip {
+  @extend %confettistyle;
+  @include confettimix($confettiwhite);
+  margin-left: 500px;
+  animation-delay: 4s;
+}
+
+.confettid, .confettio, .confettil {
+  @extend %confettistyle;
+  @include confettimix($confettiblue);
+  margin-left: 100px;
+  animation-delay: 1.5s;
+}
+
+.confettie, .confettij, .confettit {
+  @extend %confettistyle;
+  @include confettimix($confettideeppink);
+  margin-left: 850px;
+  animation-delay: 3s;
+}
+
+.confettig, .confettis, .confettim {
+  @extend %confettistyle;
+  @include confettimix($confettiblue);
+  margin-left: 650px;
+  animation-delay: 2s;
+}
+
+.confettih, .confettir, .confettin {
+  @extend %confettistyle;
+  @include confettimix($confettiwhite);
+  margin-left: 400px;
+  animation-delay: 0.5s;
+}
+
+.confettiq, .confettii, .confettik {
+  @extend %confettistyle;
+  @include confettimix($confettipink);
+  margin-left: 1200px;
+  animation-delay: 1s;
 }

@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var hintButtonTwo = document.querySelector("#hintbuttontwo")
   var hintButtonThree = document.querySelector("#hintbuttonthree")
   var newGameButton = document.querySelector("#newgamebutton")
+  var loseButt = document.querySelector("#losebutt")
+  var winButt = document.querySelector("#winbutt")
   var firstWordLetters = document.querySelector("#firstwordletters")
   var letterZero = document.querySelector("#letterzero")
   var letterOne = document.querySelector("#letterone")
@@ -284,7 +286,15 @@ console.log(userguesseswrong)
     hintSpot.innerHTML = "My name means 'little armoured one'."
   })
 
+loseButt.addEventListener("click",
+function () {
+  loseSpot.style.display = "none"
 
+})
+
+winButt.addEventListener("click", function () {
+  congratsSpot.style.display = "none"
+})
 
 
 
