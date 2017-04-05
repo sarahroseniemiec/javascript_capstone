@@ -1,33 +1,60 @@
-.firstwordletters {
+#letterzero, #letterone, #lettertwo, #letterthree, #letterfour, #letterfive, #lettersix {
+  display: inline-block;
+  background-color: white;
+  margin: 40px 10px 10px 10px;
   text-align: center;
-  font-size: 50px; }
+  width: 80px;
+  height: 80px;
+  padding-top: 20px; }
 
-#letterzero {
-  display: inline;
-  padding: 10px; }
+body {
+  font-family: 'Didact Gothic', sans-serif; }
 
-#letterone {
-  display: inline;
-  padding: 10px; }
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Monofett', cursive;
+  color: #ff446a; }
 
-#lettertwo {
-  display: inline;
-  padding: 10px; }
+.firstwordletters {
+  background: linear-gradient(0deg, #ff446a, #ffffff);
+  width: 850px;
+  height: 200px;
+  font-size: 50px;
+  text-align: center;
+  margin: 0px auto; }
 
-#letterthree {
-  display: inline;
-  padding: 10px; }
+.letterstuff {
+  text-align: center; }
 
-#letterfour {
-  display: inline;
-  padding: 10px; }
+.guessstuff {
+  text-align: center; }
 
-#letterfive {
-  display: inline;
-  padding: 10px; }
+.hintstuff {
+  text-align: center; }
 
-#lettersix {
-  display: inline;
-  padding: 10px; }
+#guessbox {
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Didact Gothic', sans-serif; }
+
+#guessbox:focus {
+  outline: none; }
+
+button {
+  font-size: 20px;
+  background-color: #ff446a;
+  border: none;
+  text-decoration: none;
+  padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 20px; }
+
+button:focus {
+  outline: none; }
+
+button:hover {
+  background-color: #ff93b9; }
 
 /*# sourceMappingURL=styles.css.map */

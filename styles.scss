@@ -1,44 +1,103 @@
+$hotpink: #ff446a;
+
+%letterboxes {
+  display: inline-block;
+  background-color: white;
+  margin: 40px 10px 10px 10px;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  padding-top: 20px;
+
+}
+
 
 body {
+  font-family: 'Didact Gothic', sans-serif;
 
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Monofett', cursive;
+  color: $hotpink;
 }
 
 .firstwordletters {
-  text-align: center;
+  background: linear-gradient(0deg, #ff446a, #ffffff);
+  width: 850px;
+  height: 200px;
   font-size: 50px;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.letterstuff {
+  text-align: center;
+}
+
+.guessstuff {
+  text-align: center;
+}
+
+.hintstuff {
+  text-align: center;
 }
 
 #letterzero{
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #letterone {
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #lettertwo {
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #letterthree {
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #letterfour {
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #letterfive {
-  display: inline;
-  padding: 10px;
+  @extend %letterboxes;
 }
 
 #lettersix {
-  display: inline;
+  @extend %letterboxes;
+}
+
+#guessbox {
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+#guessbox:focus {
+  outline: none;
+}
+
+button {
+  font-size: 20px;
+  background-color: $hotpink;
+  border: none;
+  text-decoration: none;
   padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 20px;
+}
+
+button:focus {
+  outline:none;
+}
+
+button:hover {
+  background-color: #ff93b9;
 }

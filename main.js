@@ -27,35 +27,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   guessButtonTwo.style.display = "none"
   hintButtonTwo.style.display = "none"
+  letterSix.style.display = "none"
 
   guessButton.addEventListener("click", function () {
+    var userguess = []
     var guess = guessBox.value.toLowerCase()
     for(var i = 0; i <= firstWordRay.length; i++){
       var guessSpot = firstWordRay.indexOf(guess)
       if (guessSpot === -1) {
         tryAgainSpot.innerHTML = "that letter isn't in the word...try again!"
       } else if (guessSpot === 0){
-        letterZero.innerHTML = firstWordRay[0]
-        letterTwo.innerHTML = firstWordRay[2]
-        tryAgainSpot.innerHTML = "good guess"
+        letterZero.innerHTML = firstWordRay[0].toUpperCase()
+        letterTwo.innerHTML = firstWordRay[2].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 1){
-        letterOne.innerHTML = firstWordRay[1]
-        tryAgainSpot.innerHTML = "good guess"
+        letterOne.innerHTML = firstWordRay[1].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 2){
-        letterTwo.innerHTML = firstWordRay[2]
-        tryAgainSpot.innerHTML = "good guess"
+        letterTwo.innerHTML = firstWordRay[2].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 3){
-        letterThree.innerHTML = firstWordRay[3]
-        tryAgainSpot.innerHTML = "good guess"
+        letterThree.innerHTML = firstWordRay[3].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 4){
-        letterFour.innerHTML = firstWordRay[4]
-        tryAgainSpot.innerHTML = "good guess"
+        letterFour.innerHTML = firstWordRay[4].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 5){
-        letterFive.innerHTML = firstWordRay[5]
-        tryAgainSpot.innerHTML = "good guess"
+        letterFive.innerHTML = firstWordRay[5].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       }
 
-    }
+    } console.log(userguess)
 
   })
 
@@ -72,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     letterThree.innerHTML = "_"
     letterFour.innerHTML = "_"
     letterFive.innerHTML = "_"
+    letterSix.style.display = "inline-block"
     letterSix.innerHTML = "_"
     guessBox.value = ""
     guessButton.style.display = "none"
@@ -88,26 +91,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (guessSpot === -1) {
         tryAgainSpot.innerHTML = "that letter isn't in the word...try again!"
       } else if (guessSpot === 0){
-        letterZero.innerHTML = secondWordRay[0]
-        tryAgainSpot.innerHTML = "good guess"
-      } else if (guessSpot === 1){
-        letterOne.innerHTML = secondWordRay[1]
-        tryAgainSpot.innerHTML = "good guess"
+        letterZero.innerHTML = secondWordRay[0].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 2){
-        letterTwo.innerHTML = secondWordRay[2]
-        tryAgainSpot.innerHTML = "good guess"
+        letterTwo.innerHTML = secondWordRay[2].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 3){
-        letterThree.innerHTML = secondWordRay[3]
-        tryAgainSpot.innerHTML = "good guess"
+        letterThree.innerHTML = secondWordRay[3].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 4){
-        letterFour.innerHTML = secondWordRay[4]
-        tryAgainSpot.innerHTML = "good guess"
+        letterFour.innerHTML = secondWordRay[4].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 5){
-        letterFive.innerHTML = secondWordRay[5]
-        tryAgainSpot.innerHTML = "good guess"
+        letterFive.innerHTML = secondWordRay[5].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       } else if (guessSpot === 6){
-        letterSix.innerHTML = secondWordRay[6]
-        tryAgainSpot.innerHTML = "good guess"
+        letterSix.innerHTML = secondWordRay[6].toUpperCase()
+        tryAgainSpot.innerHTML = "good guess!"
       }
 
     }
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   })
 
   hintButtonTwo.addEventListener("click", function () {
-    hintSpot.innerHTML = "I spend most of my time on the rink"
+    hintSpot.innerHTML = "I spend most of my time on the rink."
   })
 
 
