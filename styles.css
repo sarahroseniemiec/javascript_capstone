@@ -7,7 +7,7 @@
   height: 80px;
   padding-top: 20px; }
 
-#hintbutton, #hintbuttontwo, #hintbuttonthree, #newgamebutton, #guessbutton, #guessbuttontwo, #guessbuttonthree {
+#newgamebutton, #guessbutton, #guessbuttontwo, #guessbuttonthree {
   font-size: 20px;
   background-color: #ff446a;
   border: none;
@@ -46,6 +46,9 @@ h1 {
   font-family: 'Monofett', cursive;
   color: #ff446a; }
 
+.new {
+  text-align: center; }
+
 .firstwordletters {
   background: linear-gradient(0deg, #ff446a, #ffffff);
   width: 1050px;
@@ -60,9 +63,6 @@ h1 {
 .guessstuff {
   text-align: center; }
 
-.hintstuff {
-  text-align: center; }
-
 #guessbox {
   font-size: 20px;
   padding: 5px;
@@ -71,6 +71,15 @@ h1 {
 
 #guessbox:focus {
   outline: none; }
+
+#hintbutton, #hintbuttontwo, #hintbuttonthree {
+  font-size: 20px;
+  background-color: #ff446a;
+  border: none;
+  text-decoration: none;
+  padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 20px, 0px, 20px, 0px; }
 
 button:focus {
   outline: none; }
@@ -114,7 +123,7 @@ button:focus {
   width: 100%; }
 
 #losespot {
-  background-color: rgba(50, 202, 195, 0.42);
+  background: linear-gradient(0deg, rgba(50, 202, 195, 0.8), rgba(66, 143, 244, 0.8));
   position: fixed;
   top: 0px;
   left: 0px;
@@ -126,59 +135,89 @@ button:focus {
   text-align: center;
   font-size: 100px; }
 
-#losebutt, #winbutt {
+#winbutt {
   top: 0px;
   left: 0px;
   border: none;
   text-decoration: none;
-  background-color: rgba(50, 202, 195, 0.42);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 20px; }
+
+#losebutt {
+  top: 0px;
+  left: 0px;
+  border: none;
+  text-decoration: none;
+  background-color: rgba(50, 202, 195, 0.4);
   font-size: 20px; }
 
 #losebutt:hover {
   background-color: #32cac3; }
 
 #winbutt:hover {
-  background-color: #32cac3; }
+  background-color: white; }
 
 #hintspot {
   font-size: 30px; }
 
 .tries {
-  font-size: 30px; }
+  font-size: 30px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 125px;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  left: 205px;
+  top: 350px; }
 
 .confettia, .confettic, .confettiu {
-  background-color: rgba(255, 66, 129, 0.8);
-  margin-left: 200px;
-  animation-delay: 1s; }
+  background-color: rgba(255, 66, 129, 0.8); }
 
 .confettib, .confettif, .confettip {
-  background-color: rgba(108, 198, 0, 0.8);
-  margin-left: 500px;
-  animation-delay: 4s; }
+  background-color: rgba(255, 110, 0, 0.8); }
 
 .confettid, .confettio, .confettil {
-  background-color: rgba(0, 188, 198, 0.8);
-  margin-left: 100px;
-  animation-delay: 1.5s; }
+  background-color: rgba(0, 188, 198, 0.8); }
 
 .confettie, .confettij, .confettit {
-  background-color: rgba(165, 13, 86, 0.8);
-  margin-left: 850px;
-  animation-delay: 3s; }
+  background-color: rgba(165, 13, 86, 0.8); }
 
 .confettig, .confettis, .confettim {
-  background-color: rgba(0, 188, 198, 0.8);
+  background-color: rgba(0, 188, 198, 0.8); }
+
+.confettih, .confettir, .confettin {
+  background-color: rgba(255, 110, 0, 0.8); }
+
+.confettiq, .confettii, .confettik {
+  background-color: rgba(255, 66, 129, 0.8); }
+
+.confettik, .confettin, .confettim {
+  margin-left: 1200px;
+  animation-delay: 1s; }
+
+.confettit, .confettil, .confettip {
+  margin-left: 400px;
+  animation-delay: 0; }
+
+.confettiu, .confettii, .confettir {
   margin-left: 650px;
   animation-delay: 2s; }
 
-.confettih, .confettir, .confettin {
-  background-color: rgba(108, 198, 0, 0.8);
-  margin-left: 400px;
-  animation-delay: 0.5s; }
+.confettis, .confettij, .confettio {
+  margin-left: 500px;
+  animation-delay: 2s; }
 
-.confettiq, .confettii, .confettik {
-  background-color: rgba(255, 66, 129, 0.8);
-  margin-left: 1200px;
-  animation-delay: 1s; }
+.confettif, .confettic, .confettiq {
+  margin-left: 200px;
+  animation-delay: 4s; }
+
+.confettih, .confettig, .confettie {
+  margin-left: 850px;
+  animation-delay: 3s; }
+
+.confettid, .confettib, .confettia {
+  margin-left: 50px;
+  animation-delay: 1.5s; }
 
 /*# sourceMappingURL=styles.css.map */

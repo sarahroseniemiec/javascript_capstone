@@ -162,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loseSpot.style.display = "block"
       }
    console.log(userguessesright)
-   console.log(userguesseswrong)
 
   })
 
@@ -215,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (userguesseswrong.length === 0){
         loseSpot.style.display = "block"
       }
-console.log(userguesseswrong)
+      console.log(userguessesright)
   })
 
   hintButtonTwo.addEventListener("click", function () {
@@ -278,7 +277,7 @@ console.log(userguesseswrong)
       if (userguesseswrong.length === 0){
         loseSpot.style.display = "block"
       }
-      console.log(userguesseswrong)
+      console.log(userguessesright)
 
   })
 
@@ -295,19 +294,6 @@ function () {
 winButt.addEventListener("click", function () {
   congratsSpot.style.display = "none"
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

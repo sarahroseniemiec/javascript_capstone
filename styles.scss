@@ -1,7 +1,7 @@
 $hotpink: #ff446a;
 $confettipink: rgba(255, 66, 129, 0.8);
 $confettiblue: rgba(0, 188, 198, 0.8);
-$confettiwhite: rgba(108, 198, 0, 0.8);
+$confettiwhite: rgba(255, 110, 0, 0.8);
 $confettideeppink: rgba(165, 13, 86, 0.8);
 
 %letterboxes {
@@ -63,6 +63,10 @@ h1 {
   color: $hotpink;
 }
 
+.new {
+  text-align: center;
+}
+
 .firstwordletters {
   background: linear-gradient(0deg, #ff446a, #ffffff);
   width: 1050px;
@@ -80,9 +84,7 @@ h1 {
   text-align: center;
 }
 
-.hintstuff {
-  text-align: center;
-}
+
 
 #letterzero{
   @extend %letterboxes;
@@ -131,9 +133,19 @@ h1 {
   outline: none;
 }
 
-#hintbutton, #hintbuttontwo, #hintbuttonthree, #newgamebutton, #guessbutton, #guessbuttontwo, #guessbuttonthree {
+ #newgamebutton, #guessbutton, #guessbuttontwo, #guessbuttonthree {
   @extend %mainbutts
 
+}
+
+#hintbutton, #hintbuttontwo, #hintbuttonthree {
+  font-size: 20px;
+  background-color: $hotpink;
+  border: none;
+  text-decoration: none;
+  padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 20px, 0px, 20px, 0px;
 }
 
 button:focus {
@@ -188,7 +200,7 @@ button:focus {
 }
 
 #losespot {
-  background-color: rgba(50, 202, 195, 0.42);
+  background: linear-gradient(0deg, rgba(50, 202, 195, 0.8), rgba(66, 143, 244, 0.8));
   position: fixed;
   top: 0px;
   left: 0px;
@@ -202,12 +214,21 @@ button:focus {
   font-size: 100px;
 }
 
-#losebutt,#winbutt {
+#winbutt{
   top: 0px;
   left: 0px;
   border: none;
   text-decoration: none;
-  background-color: rgba(50, 202, 195, 0.42);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+}
+
+#losebutt {
+  top: 0px;
+  left: 0px;
+  border: none;
+  text-decoration: none;
+  background-color: rgba(50, 202, 195, 0.4);
   font-size: 20px;
 }
 
@@ -217,7 +238,7 @@ button:focus {
 
 
 #winbutt:hover {
-  background-color: rgb(50, 202, 195)
+  background-color: rgb(255, 255, 255)
 }
 
 #hintspot {
@@ -226,54 +247,89 @@ button:focus {
 
 .tries {
   font-size: 30px;
+  border: 2px solid black;
+  padding: 10px;
+  width: 125px;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  left: 205px;
+  top: 350px;
 }
 
 .confettia, .confettic, .confettiu {
   @extend %confettistyle;
   @include confettimix($confettipink);
-  margin-left: 200px;
-  animation-delay: 1s;
+
 
 }
 
 .confettib, .confettif, .confettip {
   @extend %confettistyle;
   @include confettimix($confettiwhite);
-  margin-left: 500px;
-  animation-delay: 4s;
+
 }
 
 .confettid, .confettio, .confettil {
   @extend %confettistyle;
   @include confettimix($confettiblue);
-  margin-left: 100px;
-  animation-delay: 1.5s;
+
 }
 
 .confettie, .confettij, .confettit {
   @extend %confettistyle;
   @include confettimix($confettideeppink);
-  margin-left: 850px;
-  animation-delay: 3s;
+
 }
 
 .confettig, .confettis, .confettim {
   @extend %confettistyle;
   @include confettimix($confettiblue);
-  margin-left: 650px;
-  animation-delay: 2s;
+
 }
 
 .confettih, .confettir, .confettin {
   @extend %confettistyle;
   @include confettimix($confettiwhite);
-  margin-left: 400px;
-  animation-delay: 0.5s;
+
 }
 
 .confettiq, .confettii, .confettik {
   @extend %confettistyle;
   @include confettimix($confettipink);
+
+}
+
+.confettik, .confettin, .confettim {
   margin-left: 1200px;
   animation-delay: 1s;
+}
+
+.confettit, .confettil, .confettip {
+  margin-left: 400px;
+  animation-delay: 0;
+}
+
+.confettiu, .confettii, .confettir {
+  margin-left: 650px;
+  animation-delay: 2s;
+}
+
+.confettis, .confettij, .confettio {
+  margin-left: 500px;
+  animation-delay: 2s;
+}
+.confettif, .confettic, .confettiq {
+  margin-left: 200px;
+  animation-delay: 4s;
+}
+
+.confettih, .confettig, .confettie {
+  margin-left: 850px;
+  animation-delay: 3s;
+}
+
+.confettid, .confettib, .confettia {
+  margin-left: 50px;
+  animation-delay: 1.5s;
 }
